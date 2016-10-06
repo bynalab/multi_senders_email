@@ -1,8 +1,8 @@
 <?php
 
 /* 
- * Written by: teamBynaLab
- * Email: algorithm290@gmail.com
+ * Written by: Abubakar Abdusalam
+ * Email: abdusalam@bynalab.com
  * Date: 10/05/2016
  * Time: 10:03 AM
 */
@@ -40,51 +40,39 @@
         background-color: greenyellow;
     }
 </style>
-<title>Face of Candy City</title>
-    <h1>Vote for Face of Candy City</h1>
+<title>Title</title>
+    <h1>H1 header if any</h1>
     <form action="" method="post">
-        <input type="text" id='To_Email' name='recipient' class="longtext" value="algorithm290@gmail.com"><br/><br/>
+        <input type="text" id='To_Email' name='recipient' class="longtext" value="example@github.com"><br/><br/>
         <textarea id='To_Email' name='senders' class="widelongtext" placeholder="Sender's Email Addresses..."></textarea><br/><br/>
-        <button type="submit" name="vote" id="submit">Vote</button>
+        <button type="submit" name="send" id="submit">Vote</button>
     </form>
     <br/>
+
+<!-- This is really not neccessary...
     <p class="message"><span style="color: red">Message format:</span></p>
-    <p class="message"><span style="color: red">Subject:</span> FACE OF CANDY CITY</p>
-    <p class="message"><span style="color: red">Body:</span> FACE OF CANDY CITY AS PAGEANT OF THE YEAR</p>
-    
-    
+    <p class="message"><span style="color: red">Subject:</span> Subject</p>
+    <p class="message"><span style="color: red">Body:</span> Message Body</p>
+-->    
+
     <?php
-    if(isset($_POST['vote'])){
+    if(isset($_POST['send'])){
     $sender = $_POST['senders'];
     $array = explode("\n", $sender);
     //print_r($array);
     foreach($array as $emails){
         $to = $_POST['recipient'];
-    $subject = "FACE OF CANDY CITY";
-    $message = "FACE OF CANDY CITY AS PAGEANT OF THE YEAR";
-    $headers = "From: BynaTeam <$emails>";
+    $subject = "Subject";
+    $message = "Message Body";
+    $headers = "From: $emails";
     
-    $vote = mail($to, $subject, $message, $headers);
-    if($vote){
-        echo 'Vote Successfully Sent! ';
+    $send = mail($to, $subject, $message, $headers);
+    if($send){
+        echo 'Email Successfully Sent! ';
     }
  else {
         echo 'Failed... Retry!';
     }
-    sleep(rand(10, 20));
+    sleep(rand(10, 20)); //This delays the loop by random secs from 10sec to 20sec before another email is sent...
     }
     }
-
-    
-    
-    
-    /*
-     * algorithm290@gmail.com
-officialsoulprinz@gmail.com
-toybz@outlook.com
-jjidexy@yahoo.com
-     * nfsawards@gmail.com
-     * 
-     * if(isset($_POST['vote'])){
-    $sender = $_POST['senders'];
-     */
